@@ -1,0 +1,11 @@
+#include <h5cpp/all>
+
+int main(int argc, char **argv)
+{
+
+  h5::fd_t fd = h5::open("np04_timeSliceData_run011765_0034_dl1.hdf5",H5F_ACC_RDONLY);
+  h5::ds_t ds = h5::open(fd,"/79751498642500000/FELIX/APA5.2");
+  std::cout << "number of frames: " << (int) h5::aread<int>(ds,"number_of_frames") << std::endl;
+
+  return 0;
+}
