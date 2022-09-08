@@ -85,8 +85,8 @@ std::string get_attr_varstring(hid_t group, std::string attrname)
   char *value;
   hid_t ga = H5Aopen_name(group, attrname.c_str());
   H5Aread(ga, H5Aget_type(ga), &value);
-  H5Aclose(ga);
   std::string ret(value);
   H5free_memory(value);
+  H5Aclose(ga);
   return ret;
 }
